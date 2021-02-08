@@ -5,7 +5,47 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1 align="center"><%= title %></h1>
+    <p>Welcome to <%= title %>.</p>
+
+  <p>El uso de está página está restingido sólo para aplicaciones autorizadas. Si te interesa hacer uso de esta tienda, contacta a KeepCoding.</p>
+  <p>Para hacer uso de los filtros, tome en cuenta lo siguiente.</p>
+  <ul>
+    <li>A la dirección actual, agregue un signo de <strong>interrogación (?)</strong> y enseguida su primer filtro.</li>
+    <li>Después de cada nombre de filtro, agregue un sígno de <strong>=</strong> para enseguida agregar el dato a filtrar.</li>
+    <li>Si desea agregar dos o más filtros, agregue un símbolo <strong>&</strong> entre ellos.</li>
+    <li>Para enlistar entre porductos en Venta o Búsqueda, agregue el filtro "comStatus" y enseguida la palabra <strong>Venta</strong> o <strong>Busco</strong>.</li>
+    <li>Para buscar productos de un precio, agrege el filtro price y enseguida la cantidad que desea buscar. </li>
+    <li>Si requiere de una busqueda por rango de precio, agregue el filtro <strong>min</strong> seguido del costo menor y <strong>max</strong> con el costo mayor.</li>
+    <li>Puede buscar por categoría, como <italic>mobile</italic>, <italic>work</italic>, <italic>lifestyle</italic> y <italic>motor</italic>. Para hacerlo, colóque su categoría despupes del filtro <strong>tags</strong>.</li>
+  </ul>
+
+  <h3 align="center">Lista de productos en existencia.</h3>
+
+  <table>
+    <colgroup>
+      <col style="background-color: gray">
+      <col span="3" style="background-color: mediumturquoise">
+    </colgroup>
+    <thead>
+      <tr style="background-color: black; color:white;">
+        <th style="width:400px">Producto</th>
+        <th style="width:100px">Estatus</th>
+        <th style="width:100px">Precio</th>
+        <th style="width:240px">Fotografía</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% list.forEach(list => { %>
+      <tr>
+        <th><%= list.name %></th>
+        <td align="center"><%= list.comStatus %></td>
+        <td align="center">$ <%= list.price %> mx</td>
+        <td align="center"> <img src="https://via.placeholder.com/200x150" alt="<%= list.name %>"></td>
+        </tr>
+        <% }) %>
+    </tbody>
+  </table>
+
   </body>
 </html>

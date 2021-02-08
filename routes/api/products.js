@@ -34,14 +34,6 @@ router.get('/', async function(req, res, next) {
             filter.price = price;
         }
 
-        // if(typeof tags !== 'undefined') {
-        //     if(typeof tags === 'string') {
-        //         filter.tags = tags;
-        //     } else {
-        //         filter.tags = { $in: tags };
-        //     }
-        // }
-
         if(tags) {
             filter.tags = { $in: tags };
         }
@@ -86,21 +78,5 @@ router.post('/', async (req, res, next) => {
         next(err)
     }
 })
-
-// DEL delete/api/agentes:id 
-
-router.delete('/:id', async (req, res, next) => {
-    try {
-        const _id = req.params.id;
-
-        await Agente.deleteOne({ _id: _id });
-        // se usa {new: true} para que devuelva el dato actuializado.
-
-        res.json();
-    } catch (err){
-        next(err)
-    }
-})
-
 
 module.exports = router;
